@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swa
 const grotesk = Space_Grotesk({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-display", display: "swap" });
 
 // NOTE: update this to your real deployed URL so OG/Twitter images resolve absolutely.
-const SITE = "https://dsp-portal.vercel.app";
+const SITE = "https://dsp-assignment.vercel.app";
 const TITLE = "DSP Assignment Portal";
 const DESC = "Question sheets, worked answers, and an in-browser voice-compression tool for Digital Signal Processing lab assignments. Runs entirely in your browser.";
 
