@@ -16,13 +16,13 @@ function drawWaveforms(tracks, sampleRate) {
   c.width = W; c.height = H;
   const g = c.getContext("2d");
   g.fillStyle = "#ffffff"; g.fillRect(0, 0, W, H);
-  const colors = ["#0b6e6e", "#2a6fb0", "#b8500f", "#b0143c"];
+  const line = "#1f3a52";
   RATES.forEach((r, i) => {
     const y0 = i * laneH + pad;
     const data = tracks[r.key];
-    g.strokeStyle = "#e2e2e2"; g.lineWidth = 1;
+    g.strokeStyle = "#e7e4dd"; g.lineWidth = 1;
     g.beginPath(); g.moveTo(40, y0 + laneH / 2); g.lineTo(W - 10, y0 + laneH / 2); g.stroke();
-    g.strokeStyle = colors[i]; g.lineWidth = 1; g.beginPath();
+    g.strokeStyle = line; g.lineWidth = 1; g.beginPath();
     const step = Math.max(1, Math.floor(data.length / (W - 60)));
     let x = 40;
     for (let j = 0; j < data.length; j += step) {
@@ -32,7 +32,7 @@ function drawWaveforms(tracks, sampleRate) {
       x += (W - 60) / (data.length / step);
     }
     g.stroke();
-    g.fillStyle = "#222"; g.font = "14px sans-serif";
+    g.fillStyle = "#17191c"; g.font = "600 14px Inter, sans-serif";
     g.fillText(r.label + "  (" + r.sub + ")", 40, y0 - 8);
   });
   return new Promise((res) => c.toBlob((b) => res(b), "image/png"));
