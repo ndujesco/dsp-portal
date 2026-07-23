@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { decodeToMono, compress, encodeWav } from "../lib/audio";
-import { voiceComM, pickQuantize, readme } from "../lib/files";
+import { voiceComM, pickQuantize } from "../lib/files";
 
 const RATES = [
   { key: "x64", label: "64 kbps", sub: "8000 Hz · 8-bit · reference" },
@@ -88,7 +88,6 @@ export default function VoiceTool() {
       zip.file("VoiceCom.m", voiceComM(prefix.trim().replace(/\s+/g, "_"), orig));
       zip.file("quantize_audio.m", pickQuantize());
       zip.file(pf + "Waveforms.png", wfBuf);
-      zip.file("README.txt", readme(prefix.trim().replace(/\s+/g, "_"), orig));
       const blob = await zip.generateAsync({ type: "blob" });
       setZipUrl(URL.createObjectURL(blob));
       setStatus("ready"); setMsg("Done. " + out.N + " samples per track at 8 kHz.");
